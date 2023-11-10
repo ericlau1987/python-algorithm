@@ -1,0 +1,24 @@
+# Write a recursive function called intpow that given a number, x, and an integer, n, will compute x ^ n. 
+# You must write this function recursively to get full credit. 
+# Be sure to put it in a program with several test cases to test that your function works correctly.
+
+def intpow(n):
+    if n == 1:
+        return 1
+    
+    restrev = intpow(n-1)
+    result = restrev * n
+
+    print(restrev)
+    return result
+
+
+def main():
+    # print(intpow(2))
+    # print(intpow(3))
+    # print(intpow(4))
+    # print(intpow(1))
+    print(intpow(6))
+
+if __name__ == "__main__":
+    main()
