@@ -6,7 +6,7 @@ class linkedList:
 # precede a name but aren’t followed by two underscores at the 8     
 # end of the name (i.e. an operator name).
     class __Node:
-        def __init__(self, item, next):
+        def __init__(self, item, next=None):
             self.item = item
             self.next = next 
 
@@ -68,7 +68,31 @@ class linkedList:
             cursor = cursor.getNext() 
 
         return result
+    
+    def append(self, item):
+        node = linkedList.__Node(item)
+        self.last.setNext(node)
+        self.last = node
+        self.numItems += 1
+
+    def insert(self, index, item):
+        cursor = self.first 
+
+        if index < self.numItems:
+            for i in range(index):
+                cursor = cursor.getNext()
+
+            node = linkedList.__node(item, cursor.getNext())
+            cursor.setNext(node)
+            self.numItems += 1
+
+        else:
+            self.append(item)
+
+def main():
+    linkedList1 = linkedList(contents=[1,2,3,4])
+    print(linkedList1)
 
 
-# def main():
-#     print(linkedList([1,2,3]))
+if __name__ == "__main__":
+    main()
